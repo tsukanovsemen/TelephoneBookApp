@@ -3,8 +3,10 @@
 
 #include <QObject>
 
+#include "TelephoneBookModel_export.h"
+
 namespace TelephoneBookModel {
-    class IContact : public QObject
+    class TELEPHONEBOOKMODEL_EXPORT IContact : public QObject
     {
         Q_OBJECT
 

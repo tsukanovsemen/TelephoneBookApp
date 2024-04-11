@@ -3,11 +3,13 @@
 
 #include <QString>
 
+#include "TelephoneBookModel_export.h"
+
 namespace TelephoneBookModel {
     /*!
      * \brief Tools for validate contact's fields
      */
-    class ContactToolsValidate
+    class TELEPHONEBOOKMODEL_EXPORT ContactToolsValidate
     {
     public:
         /*!
