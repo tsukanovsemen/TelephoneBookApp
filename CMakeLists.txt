@@ -14,15 +14,15 @@ AUTO_BUILD_RESOURCES_QT5()
 
 find_package(Qt5 COMPONENTS Core Qml Widgets REQUIRED)
 
-INCLUDE_SOURCES(${PROJECT_NAME})
-
 add_executable(${PROJECT_NAME}
-    ${SOURCES})
+    src/main.cpp
+)
 
 set_target_properties(
     ${PROJECT_NAME}
     PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/install-root)
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/install-root
+)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Qml Qt5::Widgets TelephoneBookModel)
 
