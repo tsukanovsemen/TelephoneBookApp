@@ -6,6 +6,7 @@ project(TelephoneBook
 )
 
 set(PROJECT_NAMESPACE telephone_book)
+set(BUILD_TESTS TRUE)
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake.macros/base.cmake)
 
@@ -26,6 +27,8 @@ set_target_properties(
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Qml Qt5::Widgets TelephoneBookModel)
 
 PARSE_SUBDIRECTORIES(
-    Model)
+    Model
+    Tests
+)
 
 SET_BASE_TARGET_PROPERTIES(${PROJECT_NAME})
