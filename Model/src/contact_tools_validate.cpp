@@ -29,4 +29,6 @@ bool TelephoneBookModel::ContactToolsValidate::validateEmail(const QString &emai
             return false;
         }
     }
+
+    return true;
 }
