@@ -23,6 +23,18 @@ namespace TelephoneBookModel {
 
     public:
         /*!
+         * \brief IContact - set parent object
+         * \param parent
+         */
+        explicit IContact(QObject *parent) : QObject(parent)
+        {}
+
+        /*!
+         * \brief IContact - defaul constructor
+         */
+        explicit IContact() = default;
+
+        /*!
          * \brief email - return email of contact
          * \return contact's email
          */

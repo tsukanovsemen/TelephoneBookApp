@@ -22,6 +22,12 @@ namespace TelephoneBookModel {
         explicit Contact() = default;
 
         /*!
+         * \brief Contact - constructor with parent
+         * \param parent
+         */
+        explicit Contact(QObject *parent);
+
+        /*!
          * \brief email - return email of contact
          * \return contact's email
          */

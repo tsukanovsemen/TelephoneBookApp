@@ -4,6 +4,9 @@
 
 #include "contact_tools_validate.h"
 
+TelephoneBookModel::Contact::Contact(QObject *parent) : IContact(parent)
+{}
+
 QString TelephoneBookModel::Contact::email() const
 {
     return _email;
