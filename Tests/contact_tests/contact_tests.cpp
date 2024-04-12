@@ -65,7 +65,21 @@ void ContactTests::setTelephoneNumber_correctValue()
 }
 
 void ContactTests::setTelephoneNumber_incorrectValue()
-{}
+{
+    // Arrange
+    TelephoneBookModel::Contact contact;
+    auto currentTelNumber = "+7(909)534-44-23";
+    auto incorrectTelNumber = "ABCD123";
+    auto expectedTelNumber = currentTelNumber;
+    contact.setTelephoneNumber(currentTelNumber);
+
+    // Act
+    contact.setTelephoneNumber(incorrectTelNumber);
+    auto actualTelNumber = contact.telephoneNumber();
+
+    // Assert
+    QCOMPARE(actualTelNumber, expectedTelNumber);
+}
 
 QTEST_MAIN(ContactTests)
 #include "contact_tests.moc"
