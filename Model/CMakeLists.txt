@@ -17,16 +17,16 @@ add_library(${PROJECT_NAME}
 
 GENERATE_EXPORT_HEADERS(TARGET ${PROJECT_NAME} DIR include)
 
-set(QT_REQUIRED_COMPONENTS
-    Core
-    Widgets
-    QuickControls2
-)
-
 set_target_properties(
     ${PROJECT_NAME}
     PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/install-root
+)
+
+set(QT_REQUIRED_COMPONENTS
+    Core
+    Widgets
+    QuickControls2
 )
 
 FIND_AND_LINK_QT(TARGET
