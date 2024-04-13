@@ -12,6 +12,7 @@ private:
     Q_SLOT void rowCount();
     Q_SLOT void data_model();
     Q_SLOT void addContact();
+    Q_SLOT void addContact_withParameters();
     Q_SLOT void removeContact();
     Q_SLOT void removeContactByIndex();
 };
