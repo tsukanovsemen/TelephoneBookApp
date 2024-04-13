@@ -99,14 +99,97 @@ void ContactModelTests::addContact_withParameters()
 }
 
 void ContactModelTests::removeContact()
-{}
+{
+    // Arrange
+    TelephoneBookModel::ContactModel contactModel;
+
+    auto contact1 = new TelephoneBookModel::Contact();
+    auto contact1Email = "first";
+    contact1->setEmail(contact1Email);
+
+    auto contact2 = new TelephoneBookModel::Contact();
+    auto contact2Email = "second";
+    contact2->setEmail(contact2Email);
+
+    auto expectedEmail = contact1Email;
+    auto expectedSize = 1;
+
+    contactModel.addContact(contact1);
+    contactModel.addContact(contact2);
+
+    // Act
+    contactModel.removeContact();
+    auto actualSize = contactModel.rowCount(QModelIndex());
+    auto actualEmail = contactModel.contactByIndex(actualSize - 1)->email();
+
+    // Assert
+    QCOMPARE(actualEmail, expectedEmail);
+    QCOMPARE(actualSize, expectedSize);
+}
 
 void ContactModelTests::removeContactByIndex()
-{}
+{
+    // Arrange
+    TelephoneBookModel::ContactModel contactModel;
+
+    auto index = 0;
+
+    auto contact1 = new TelephoneBookModel::Contact();
+    auto contact1Email = "first";
+    contact1->setEmail(contact1Email);
+
+    auto contact2 = new TelephoneBookModel::Contact();
+    auto contact2Email = "second";
+    contact2->setEmail(contact2Email);
+
+    auto expectedEmail = contact2Email;
+    auto expectedSize = 1;
+
+    contactModel.addContact(contact1);
+    contactModel.addContact(contact2);
+
+    // Act
+    contactModel.removeContactByIndex(index);
+    auto actualSize = contactModel.rowCount(QModelIndex());
+    auto actualEmail = contactModel.contactByIndex(actualSize - 1)->email();
+
+    // Assert
+    QCOMPARE(actualEmail, expectedEmail);
+    QCOMPARE(actualSize, expectedSize);
+}
 
 void ContactModelTests::contactByIndex()
 {
+    // Arrange
+    TelephoneBookModel::ContactModel contactModel;
 
+    auto index = 1;
+
+    auto contact1 = new TelephoneBookModel::Contact();
+    auto contact2 = new TelephoneBookModel::Contact();
+    auto contact3 = new TelephoneBookModel::Contact();
+
+    contactModel.addContact(contact1);
+    contactModel.addContact(contact2);
+    contactModel.addContact(contact3);
+
+    auto email = "abcd";
+    auto telNumber = "1234";
+
+    contact2->setEmail(email);
+    contact2->setTelephoneNumber(telNumber);
+
+    auto expectedEmail = email;
+    auto expectedTelNumber = telNumber;
+
+    // Act
+    auto actContact = contactModel.contactByIndex(index);
+    auto actualEmail = actContact->email();
+    auto actualTelNumber = actContact->telephoneNumber();
+
+    // Assert
+    QCOMPARE(actualEmail, expectedEmail);
+    QCOMPARE(actualTelNumber, expectedTelNumber);
 }
 
 QTEST_MAIN(ContactModelTests)

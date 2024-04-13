@@ -73,7 +73,7 @@ namespace TelephoneBookModel {
         /*!
          * \brief contactByIndex - return contact by index
          */
-        Contact *contactByIndex(int index) noexcept;
+        Contact *contactByIndex(uint index) noexcept;
 
     private:
         QVector<Contact *> _contacts; ///< list contacts

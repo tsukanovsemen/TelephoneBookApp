@@ -47,6 +47,11 @@ void TelephoneBookModel::ContactModel::addContact(Contact *contact) noexcept
 
 void TelephoneBookModel::ContactModel::removeContact() noexcept
 {
+    if (_contacts.isEmpty()) {
+        qWarning() << "Can't remove contact, Contacts list is empty";
+        return;
+    }
+
     auto lastIndex = _contacts.size() - 1;
 
     beginRemoveRows(QModelIndex(), lastIndex, lastIndex);
@@ -69,7 +74,7 @@ void TelephoneBookModel::ContactModel::removeContactByIndex(int index) noexcept
     endRemoveRows();
 }
 
-TelephoneBookModel::Contact *TelephoneBookModel::ContactModel::contactByIndex(int index) noexcept
+TelephoneBookModel::Contact *TelephoneBookModel::ContactModel::contactByIndex(uint index) noexcept
 {
     if (index >= _contacts.size()) {
         qWarning() << "Index is not valid";
