@@ -1,5 +1,7 @@
 #include "contact_model.h"
 
+#include <QDebug>
+
 int TelephoneBookModel::ContactModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
@@ -69,5 +71,10 @@ void TelephoneBookModel::ContactModel::removeContactByIndex(int index) noexcept
 
 TelephoneBookModel::Contact *TelephoneBookModel::ContactModel::contactByIndex(int index) noexcept
 {
+    if (index >= _contacts.size()) {
+        qWarning() << "Index is not valid";
+        return nullptr;
+    }
+
     return _contacts.at(index);
 }

@@ -5,12 +5,13 @@
 #include <QAbstractListModel>
 
 #include "contact.h"
+#include "TelephoneBookModel_export.h"
 
 namespace TelephoneBookModel {
     /*!
      * \brief Contact's list model
      */
-    class ContactModel : public QAbstractListModel
+    class TELEPHONEBOOKMODEL_EXPORT ContactModel : public QAbstractListModel
     {
         Q_OBJECT
 
