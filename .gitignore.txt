@@ -41,3 +41,4 @@ CMakeLists.txt.user
 
 # Export files
 Model/include/TelephoneBookModel_export.h
+View/include/TelephoneBookView_export.h

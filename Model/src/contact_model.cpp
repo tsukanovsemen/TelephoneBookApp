@@ -1,4 +1,5 @@
 #include "contact_model.h"
+#include "contact.h"
 
 #include <QDebug>
 
@@ -34,7 +35,7 @@ void TelephoneBookModel::ContactModel::addContact() noexcept
     endInsertRows();
 }
 
-void TelephoneBookModel::ContactModel::addContact(Contact *contact) noexcept
+void TelephoneBookModel::ContactModel::addContact(IContact *contact) noexcept
 {
     auto lastIndex = _contacts.size();
 
@@ -74,7 +75,7 @@ void TelephoneBookModel::ContactModel::removeContactByIndex(int index) noexcept
     endRemoveRows();
 }
 
-TelephoneBookModel::Contact *TelephoneBookModel::ContactModel::contactByIndex(uint index) noexcept
+TelephoneBookModel::IContact *TelephoneBookModel::ContactModel::contactByIndex(uint index) noexcept
 {
     if (index >= _contacts.size()) {
         qWarning() << "Index is not valid";

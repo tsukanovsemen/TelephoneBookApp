@@ -5,7 +5,7 @@
 #include <QAbstractListModel>
 #include <QPointer>
 
-#include "contact.h"
+#include "i_contact.h"
 #include "TelephoneBookModel_export.h"
 
 namespace TelephoneBookModel {
@@ -59,7 +59,7 @@ namespace TelephoneBookModel {
          * \brief addContact - add outer contact
          * \param contact - new contact
          */
-        void addContact(Contact *contact) noexcept;
+        void addContact(IContact *contact) noexcept;
 
         /*!
          * \brief removeContact - remove last contact
@@ -74,10 +74,10 @@ namespace TelephoneBookModel {
         /*!
          * \brief contactByIndex - return contact by index
          */
-        Contact *contactByIndex(uint index) noexcept;
+        IContact *contactByIndex(uint index) noexcept;
 
     private:
-        QVector<QPointer<Contact>> _contacts; ///< list contacts
+        QVector<QPointer<IContact>> _contacts; ///< list contacts
     };
 
 } // end namespace TelephoneBookModel

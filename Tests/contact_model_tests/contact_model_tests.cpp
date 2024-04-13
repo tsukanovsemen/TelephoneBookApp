@@ -1,6 +1,7 @@
 #include <QtTest>
 
 #include "contact_model.h"
+#include "contact.h"
 
 class ContactModelTests : public QObject
 {
@@ -51,7 +52,7 @@ void ContactModelTests::data_model()
     auto actualVariantContact =
      contactModel.data(contactModel.index(expectedIndex), contactModel.ContactRole);
 
-    auto actualContact = actualVariantContact.value<TelephoneBookModel::Contact *>();
+    auto actualContact = actualVariantContact.value<TelephoneBookModel::IContact *>();
 
     // Assert
     QCOMPARE(actualContact, expectedContact);
