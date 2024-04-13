@@ -1,7 +1,5 @@
 #include "contact_tools_validate.h"
 
-#include <format>
-
 bool TelephoneBookModel::ContactToolsValidate::validateTelephoneNumber(
  const QString &telephoneNumber)
 {
