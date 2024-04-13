@@ -1,11 +1,9 @@
 #include "contact_tools_validate.h"
 
-#include <format>
-
 bool TelephoneBookModel::ContactToolsValidate::validateTelephoneNumber(
  const QString &telephoneNumber)
 {
-    QString availableCharacters = "1234567890+()";
+    QString availableCharacters = "1234567890+()-";
 
     for (const auto character : telephoneNumber) {
         if (!availableCharacters.contains(character)) {
@@ -29,4 +27,6 @@ bool TelephoneBookModel::ContactToolsValidate::validateEmail(const QString &emai
             return false;
         }
     }
+
+    return true;
 }

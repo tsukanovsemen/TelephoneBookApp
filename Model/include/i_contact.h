@@ -3,8 +3,10 @@
 
 #include <QObject>
 
+#include "TelephoneBookModel_export.h"
+
 namespace TelephoneBookModel {
-    class IContact : public QObject
+    class TELEPHONEBOOKMODEL_EXPORT IContact : public QObject
     {
         Q_OBJECT
 
@@ -20,6 +22,18 @@ namespace TelephoneBookModel {
                     telephoneNumberChanged)
 
     public:
+        /*!
+         * \brief IContact - set parent object
+         * \param parent
+         */
+        explicit IContact(QObject *parent) : QObject(parent)
+        {}
+
+        /*!
+         * \brief IContact - defaul constructor
+         */
+        explicit IContact() = default;
+
         /*!
          * \brief email - return email of contact
          * \return contact's email

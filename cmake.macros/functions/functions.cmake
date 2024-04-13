@@ -39,11 +39,8 @@ macro(FIND_AND_LINK_QT)
         message(FATAL_ERROR "FIND_AND_LINK_QT : QT_COMPONENTS is not set")
     endif()
 
-    # Ищем пакеты Qt6 или Qt5
-    find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS ${_LIBS_LINKING_QT_COMPONENTS})
-
     # Ищем нужные компоненты
-    find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS ${_LIBS_LINKING_QT_COMPONENTS})
+    find_package(Qt5 REQUIRED COMPONENTS ${_LIBS_LINKING_QT_COMPONENTS})
 
     foreach(COMPONENT ${_LIBS_LINKING_QT_COMPONENTS})
         message(STATUS "LINK - ${_LIBS_LINKING_TARGET}
