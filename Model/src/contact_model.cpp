@@ -2,7 +2,8 @@
 
 int TelephoneBookModel::ContactModel::rowCount(const QModelIndex &parent) const
 {
-    return parent.isValid() ? _contacts.size() : 0;
+    Q_UNUSED(parent)
+    return _contacts.size();
 }
 
 QVariant TelephoneBookModel::ContactModel::data(const QModelIndex &index, int role) const
@@ -31,6 +32,17 @@ void TelephoneBookModel::ContactModel::addContact() noexcept
     endInsertRows();
 }
 
+void TelephoneBookModel::ContactModel::addContact(Contact *contact) noexcept
+{
+    auto lastIndex = _contacts.size();
+
+    beginInsertRows(QModelIndex(), lastIndex, lastIndex);
+    {
+        _contacts.push_back(contact);
+    }
+    endInsertRows();
+}
+
 void TelephoneBookModel::ContactModel::removeContact() noexcept
 {
     auto lastIndex = _contacts.size() - 1;
@@ -53,4 +65,9 @@ void TelephoneBookModel::ContactModel::removeContactByIndex(int index) noexcept
         delete deletingContact;
     }
     endRemoveRows();
+}
+
+TelephoneBookModel::Contact *TelephoneBookModel::ContactModel::contactByIndex(int index) noexcept
+{
+    return _contacts.at(index);
 }

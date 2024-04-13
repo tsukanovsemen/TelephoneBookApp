@@ -54,6 +54,12 @@ namespace TelephoneBookModel {
         void addContact() noexcept;
 
         /*!
+         * \brief addContact - add outer contact
+         * \param contact - new contact
+         */
+        void addContact(Contact *contact) noexcept;
+
+        /*!
          * \brief removeContact - remove last contact
          */
         void removeContact() noexcept;
@@ -62,6 +68,11 @@ namespace TelephoneBookModel {
          * \brief removeContactByIndex - remove contact by index
          */
         void removeContactByIndex(int index) noexcept;
+
+        /*!
+         * \brief contactByIndex - return contact by index
+         */
+        Contact *contactByIndex(int index) noexcept;
 
     private:
         QVector<Contact *> _contacts; ///< list contacts

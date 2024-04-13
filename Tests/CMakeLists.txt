@@ -12,5 +12,6 @@ if(BUILD_TESTS)
 
     PARSE_SUBDIRECTORIES(
         contact_tests
+        contact_model_tests
     )
 endif()

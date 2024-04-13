@@ -1,4 +1,4 @@
-project(ContactTests
+project(ContactModelTests
     LANGUAGES CXX
 )
 
@@ -14,7 +14,7 @@ add_executable(${PROJECT_NAME}
         ${SOURCES}
 )
 
-add_test(NAME ContactTests COMMAND ContactTests)
+add_test(NAME ContactModelTests COMMAND ContactModelTests)
 
 set_target_properties(
     ${PROJECT_NAME}

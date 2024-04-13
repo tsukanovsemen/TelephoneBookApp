@@ -9,20 +9,20 @@
 #  ifndef TELEPHONEBOOKMODEL_EXPORT
 #    ifdef TelephoneBookModel_EXPORTS
         /* We are building this library */
-#      define TELEPHONEBOOKMODEL_EXPORT __declspec(dllexport)
+#      define TELEPHONEBOOKMODEL_EXPORT __attribute__((visibility("default")))
 #    else
         /* We are using this library */
-#      define TELEPHONEBOOKMODEL_EXPORT __declspec(dllimport)
+#      define TELEPHONEBOOKMODEL_EXPORT __attribute__((visibility("default")))
 #    endif
 #  endif
 
 #  ifndef TELEPHONEBOOKMODEL_NO_EXPORT
-#    define TELEPHONEBOOKMODEL_NO_EXPORT 
+#    define TELEPHONEBOOKMODEL_NO_EXPORT __attribute__((visibility("hidden")))
 #  endif
 #endif
 
 #ifndef TELEPHONEBOOKMODEL_DEPRECATED
-#  define TELEPHONEBOOKMODEL_DEPRECATED __declspec(deprecated)
+#  define TELEPHONEBOOKMODEL_DEPRECATED __attribute__ ((__deprecated__))
 #endif
 
 #ifndef TELEPHONEBOOKMODEL_DEPRECATED_EXPORT
