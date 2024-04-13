@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QAbstractListModel>
+#include <QPointer>
 
 #include "contact.h"
 #include "TelephoneBookModel_export.h"
@@ -76,7 +77,7 @@ namespace TelephoneBookModel {
         Contact *contactByIndex(uint index) noexcept;
 
     private:
-        QVector<Contact *> _contacts; ///< list contacts
+        QVector<QPointer<Contact>> _contacts; ///< list contacts
     };
 
 } // end namespace TelephoneBookModel

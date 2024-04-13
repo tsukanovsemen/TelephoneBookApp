@@ -10,7 +10,7 @@ int TelephoneBookModel::ContactModel::rowCount(const QModelIndex &parent) const
 
 QVariant TelephoneBookModel::ContactModel::data(const QModelIndex &index, int role) const
 {
-    const auto contact = _contacts.at(index.row());
+    const auto contact = _contacts.at(index.row()).data();
 
     if (role == ContactRole)
         return QVariant::fromValue(contact);
@@ -81,5 +81,5 @@ TelephoneBookModel::Contact *TelephoneBookModel::ContactModel::contactByIndex(ui
         return nullptr;
     }
 
-    return _contacts.at(index);
+    return _contacts.at(index).data();
 }

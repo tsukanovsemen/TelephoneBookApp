@@ -24,10 +24,11 @@ set_target_properties(
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/install-root
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Qml Qt5::Widgets TelephoneBookModel)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Qml Qt5::Widgets TelephoneBookModel TelephoneBookView)
 
 PARSE_SUBDIRECTORIES(
     Model
+    View
     Tests
 )
 
