@@ -2,17 +2,17 @@
 #define CONTACT_MODEL_H
 
 #include <QObject>
-#include <QAbstractListModel>
 #include <QPointer>
 
 #include "i_contact.h"
+#include "i_contact_model.h"
 #include "TelephoneBookModel_export.h"
 
 namespace TelephoneBookModel {
     /*!
      * \brief Contact's list model
      */
-    class TELEPHONEBOOKMODEL_EXPORT ContactModel : public QAbstractListModel
+    class TELEPHONEBOOKMODEL_EXPORT ContactModel : public IContactModel
     {
         Q_OBJECT
 
@@ -53,33 +53,32 @@ namespace TelephoneBookModel {
         /*!
          * \brief addContact - add new contact
          */
-        void addContact() noexcept;
+        void addContact() noexcept override;
 
         /*!
          * \brief addContact - add outer contact
          * \param contact - new contact
          */
-        void addContact(IContact *contact) noexcept;
+        void addContact(IContact *contact) noexcept override;
 
         /*!
          * \brief removeContact - remove last contact
          */
-        void removeContact() noexcept;
+        void removeContact() noexcept override;
 
         /*!
          * \brief removeContactByIndex - remove contact by index
          */
-        void removeContactByIndex(int index) noexcept;
+        void removeContactByIndex(int index) noexcept override;
 
         /*!
          * \brief contactByIndex - return contact by index
          */
-        IContact *contactByIndex(uint index) noexcept;
+        IContact *contactByIndex(uint index) noexcept override;
 
     private:
         QVector<QPointer<IContact>> _contacts; ///< list contacts
     };
-
 } // end namespace TelephoneBookModel
 
 #endif // CONTACT_MODEL_H
