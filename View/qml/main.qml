@@ -1,7 +1,7 @@
 import QtQuick 2.15
-import QtQuick.Window 2.15
+import QtQuick.Controls 2.0
 
-Window {
+ApplicationWindow {
     id: mainWindow
 
     property QtObject contactModel: null
@@ -14,6 +14,7 @@ Window {
 
     WindowFrame {
         title: mainWindow.title
+        window: mainWindow
         z: controlsZPos
     }
     Image {

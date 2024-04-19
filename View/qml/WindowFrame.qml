@@ -8,6 +8,9 @@ Rectangle {
     property string title: qsTr("Hello World")
     property int heightSize: 30
     property color windowFrameColor: "transparent"
+    property int zPosMouseAreaCloseButton: 1
+    property int zPosMouseAreaWindowFrame: 0
+    property ApplicationWindow window: null
 
     width: parent.width
     height: heightSize
@@ -30,6 +33,7 @@ Rectangle {
         height: windowFrame.heightSize
         x: windowFrame.width - closeButton.width
         y: windowFrame.y
+        z: zPosMouseAreaCloseButton
         color: "transparent"
 
         Image {
@@ -50,10 +54,42 @@ Rectangle {
 
             anchors.fill: parent
             hoverEnabled: true
+            z: zPosMouseAreaCloseButton
+            cursorShape: containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
 
             onClicked: {
-                mainWindow.close()
+                window.close()
             }
+        }
+    }
+    MouseArea {
+        id: frameWindowMouseArea
+
+        property point offset: Qt.point(0, 0)
+        property bool move: false
+
+        z: zPosMouseAreaWindowFrame
+        anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
+
+        onPressed: {
+            offset.x = mouseX
+            offset.y = mouseY
+            move = true
+        }
+
+        onMouseXChanged: {
+            if (move)
+                window.x += mouseX - offset.x
+        }
+
+        onMouseYChanged: {
+            if(move)
+                window.y += mouseY - offset.y
+        }
+        onReleased: {
+            move = false
         }
     }
 }
