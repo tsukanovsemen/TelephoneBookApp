@@ -21,6 +21,7 @@ Rectangle {
 
         text: windowFrame.title
         font.family: "Ubuntu"
+        font.pixelSize: 14
         color: "white"
 
         anchors.horizontalCenter: parent.horizontalCenter
