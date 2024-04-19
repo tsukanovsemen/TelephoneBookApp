@@ -1,13 +1,13 @@
 #include <QApplication>
 
-#include "main_window.h"
+#include "application.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    QQmlApplicationEngine engine;
-    TelephoneBookView::MainWindow mainWindow(&engine);
+    Application application;
+    application.start();
 
     return app.exec();
 }

@@ -16,6 +16,8 @@ find_package(Qt5 COMPONENTS Core Qml Widgets REQUIRED)
 
 add_executable(${PROJECT_NAME}
     src/main.cpp
+    src/application.h
+    src/application.cpp
 )
 
 set_target_properties(

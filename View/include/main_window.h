@@ -5,6 +5,7 @@
 #include <QPointer>
 
 #include "TelephoneBookView_export.h"
+#include "i_contact_model.h"
 
 namespace TelephoneBookView {
 
@@ -15,10 +16,28 @@ namespace TelephoneBookView {
     {
         Q_OBJECT
     public:
-        MainWindow(QQmlApplicationEngine *engine);
+        /*!
+         * \brief MainWindow - create qml main window
+         * \param engine
+         */
+        explicit MainWindow(QQmlApplicationEngine *engine,
+                            std::unique_ptr<TelephoneBookModel::IContactModel> contactModel);
 
     private:
-        QPointer<QQmlApplicationEngine> _engine;
+        /*!
+         * \brief createMainComponent - create and set property of main component
+         * \return true - if Success, false if fail
+         */
+        bool createMainComponent() noexcept;
+
+    private:
+        QPointer<QQmlApplicationEngine> _engine; ///< qml engine
+        std::unique_ptr<TelephoneBookModel::IContactModel> _contactModel; ///< contact's model
+        QString _qmlPath { "qrc:/main.qml" }; ///< path to main qml component
+        const int _implicitWidth { 500 }; ///< required implicit width of window
+        const int _implicitHeight { 750 }; ///< required implicit height of window
+        const QString _titleName { "TelephoneBook App" };
+        const QString _backgroundImagePath {"qrc:/images/background.jpg"};
     };
 }
 
