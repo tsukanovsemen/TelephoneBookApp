@@ -35,11 +35,14 @@ ApplicationWindow {
         z: controlsZPos
         spacing: controlsSpacing
 
-        height: mainWindow.height - windowFrame.height
+        height: mainWindow.height - windowFrame.height - controlsSpacing
         width: mainWindow.width - margin
 
         ContactsView {
             contactModel: contactModel
+        }
+        BottomMenuContorl {
+
         }
     }
 

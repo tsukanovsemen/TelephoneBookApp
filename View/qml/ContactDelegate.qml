@@ -9,11 +9,11 @@ RowLayout {
     property string surname: "surname"
     property string email: "email"
     property string phoneNumber: "+7(...) ... .. .."
-    property int textSize: 20
+    property int textSize: 14
 
     height: 60
     width: parent.width
-    spacing: 15
+    spacing: 10
 
     Repeater {
         model: 4

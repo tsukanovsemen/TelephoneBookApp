@@ -7,5 +7,9 @@
         <file>images/close_button.svg</file>
         <file>ContactsView.qml</file>
         <file>ContactDelegate.qml</file>
+        <file>BottomMenuContorl.qml</file>
+	<file>images/add_contact.svg</file>
+	<file>images/delete_contact.svg</file>
+	<file>images/edit_contact.svg</file>
     </qresource>
 </RCC>

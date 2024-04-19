@@ -47,7 +47,7 @@ Rectangle {
 
             anchors.fill: closeButtinImage
             source: closeButtinImage
-            color: closeButtinMouseArea.containsMouse ? "lightpink" : "white";
+            color: closeButtinMouseArea.containsMouse ? "lightpink" : "white"
         }
         MouseArea {
             id: closeButtinMouseArea
