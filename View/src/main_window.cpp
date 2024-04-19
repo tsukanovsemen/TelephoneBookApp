@@ -20,6 +20,7 @@ bool TelephoneBookView::MainWindow::createMainComponent() noexcept
     auto object = component.beginCreate(_engine->rootContext());
     if (!object) {
         qWarning() << "Cannot create qml component";
+        qWarning() << component.errorString();
         return false;
     }
 

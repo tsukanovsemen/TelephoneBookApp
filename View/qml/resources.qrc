@@ -2,8 +2,10 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>WindowFrame.qml</file>
-	<file>images/background.jpg</file>
-	<file>images/background_blue.jpg</file>
-	<file>images/close_button.svg</file>
+        <file>images/background.jpg</file>
+        <file>images/background_blue.jpg</file>
+        <file>images/close_button.svg</file>
+        <file>ContactsView.qml</file>
+        <file>ContactDelegate.qml</file>
     </qresource>
 </RCC>
