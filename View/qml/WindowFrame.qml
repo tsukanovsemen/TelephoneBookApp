@@ -7,7 +7,7 @@ Rectangle {
 
     property string title: qsTr("Hello World")
     property int heightSize: 30
-    property color windowFrameColor: "transparent"
+    property color windowFrameColor: "#ced2d9"
     property int zPosMouseAreaCloseButton: 1
     property int zPosMouseAreaWindowFrame: 0
     property ApplicationWindow window: null
@@ -15,6 +15,14 @@ Rectangle {
     width: parent.width
     height: heightSize
     color: windowFrameColor
+    layer.enabled: true
+    layer.effect: DropShadow {
+                    transparentBorder: true
+                    verticalOffset: 3
+                    color: "#80000000"
+                    radius: 8.0
+                    samples: 17
+                }
 
     Label {
         id: titleFrame
@@ -22,7 +30,7 @@ Rectangle {
         text: windowFrame.title
         font.family: "Ubuntu"
         font.pixelSize: 14
-        color: "white"
+        color: "black"
 
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
@@ -48,7 +56,7 @@ Rectangle {
 
             anchors.fill: closeButtinImage
             source: closeButtinImage
-            color: closeButtinMouseArea.containsMouse ? "lightpink" : "white"
+            color: closeButtinMouseArea.containsMouse ? "red" : "black"
         }
         MouseArea {
             id: closeButtinMouseArea

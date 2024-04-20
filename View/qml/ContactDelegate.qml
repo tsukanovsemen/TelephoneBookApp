@@ -27,12 +27,12 @@ RowLayout {
                     case 3: return phoneNumber
                 }
             }
-            color: "white"
+            color: "black"
             font.pixelSize: textSize
             font.family: "Ubuntu"
             selectByMouse: true
             readOnly: true
-            selectionColor: "lightpink"
+            selectionColor: "#ced2d9"
         }
     }
 }

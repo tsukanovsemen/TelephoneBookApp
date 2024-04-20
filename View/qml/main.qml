@@ -14,11 +14,6 @@ ApplicationWindow {
     visible: true
     flags: Qt.FramelessWindowHint
 
-    Image {
-        source: backgroundImage
-        anchors.fill: parent
-        z: backgroundZPos
-    }
     WindowFrame {
         id: windowFrame
         title: mainWindow.title
@@ -30,14 +25,15 @@ ApplicationWindow {
 
         property int margin: 40
 
-        y: windowFrame.height * 2
-        x: margin / 2
-        z: controlsZPos
+        y: windowFrame.height
         spacing: controlsSpacing
 
-        height: mainWindow.height - windowFrame.height - controlsSpacing
-        width: mainWindow.width - margin
-
+        height: mainWindow.height - windowFrame.height
+        width: mainWindow.width
+        TopMenuControl{
+            width: controlsLayout.width
+            height: 45
+        }
         ContactsView {
             contactModel: contactModel
         }
@@ -45,5 +41,4 @@ ApplicationWindow {
 
         }
     }
-
 }

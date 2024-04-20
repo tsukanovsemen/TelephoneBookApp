@@ -6,28 +6,38 @@ Rectangle {
     id: bottomMenuContorl
 
     Layout.fillWidth: true
-    height: 120
-    color: "transparent"
+    height: 100
+    color: "#ced2d9"
+    layer.enabled: true
+    layer.effect: DropShadow {
+                    transparentBorder: true
+                    verticalOffset: -3
+                    color: "#80000000"
+                    radius: 8.0
+                    samples: 17
+                }
 
     RowLayout {
         id: controlsLayout
-        Layout.fillHeight: true
-        Layout.fillWidth: true
+        anchors.fill: parent
 
         property int borderSize: 3
-        property int radiusButton: 5
+        property int radiusButton: 10
         property int widthButton: 50
         property int heightButton: 50
 
         Rectangle {
             id: addButton
 
+            property color hoveredColor: "#8ebf99"
+
             radius: controlsLayout.radiusButton
             height: controlsLayout.heightButton
             width: controlsLayout.widthButton
             color: "transparent"
-            border.color: addButtonMouseArea.containsMouse ? "green" : "white"
+            border.color: addButtonMouseArea.containsMouse ? hoveredColor : "white"
             border.width: controlsLayout.borderSize
+            Layout.leftMargin: 55
 
             Image {
                 id: imageAddButton
@@ -39,7 +49,7 @@ Rectangle {
 
                 anchors.fill: imageAddButton
                 source: imageAddButton
-                color: addButtonMouseArea.containsMouse ? "green" : "white"
+                color: addButtonMouseArea.containsMouse ? addButton.hoveredColor : "white"
             }
 
             MouseArea {
@@ -47,68 +57,75 @@ Rectangle {
 
                 anchors.fill: parent
                 hoverEnabled: true
+                cursorShape: containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
             }
         }
-
         Rectangle {
-            id: addButton3
+            id: editButton
+
+            property color hoveredColor: "#8e918f"
 
             radius: controlsLayout.radiusButton
             height: controlsLayout.heightButton
             width: controlsLayout.widthButton
             color: "transparent"
-            border.color: addButtonMouseArea3.containsMouse ? "green" : "white"
+            border.color: editButtonMouseArea.containsMouse ? hoveredColor : "white"
             border.width: controlsLayout.borderSize
+            Layout.leftMargin: 55
 
             Image {
-                id: imageAddButton3
-                source: "qrc:/images/add_contact.svg"
+                id: imageEditButton
+                source: "qrc:/images/edit_contact.svg"
                 anchors.fill: parent
-            }
-            ColorOverlay {
-                id: colorAddButton3
 
-                anchors.fill: imageAddButton
-                source: imageAddButton
-                color: addButtonMouseArea3.containsMouse ? "green" : "white"
-            }
+                ColorOverlay {
+                    id: colorEditButton
 
+                    anchors.fill: parent
+                    source: imageEditButton
+                    color: editButtonMouseArea.containsMouse ? editButton.hoveredColor : "white"
+                }
+            }
             MouseArea {
-                id: addButtonMouseArea3
+                id: editButtonMouseArea
 
                 anchors.fill: parent
                 hoverEnabled: true
+                cursorShape: containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
             }
         }
-
         Rectangle {
-            id: addButton2
+            id: deleteButton
+
+            property color hoveredColor: "red"
 
             radius: controlsLayout.radiusButton
             height: controlsLayout.heightButton
             width: controlsLayout.widthButton
             color: "transparent"
-            border.color: addButtonMouseArea2.containsMouse ? "green" : "white"
+            border.color: deleteButtonMouseArea.containsMouse ? hoveredColor : "white"
             border.width: controlsLayout.borderSize
+            Layout.leftMargin: 55
 
             Image {
-                id: imageAddButton2
-                source: "qrc:/images/add_contact.svg"
+                id: imageDeleteButton
+                source: "qrc:/images/delete_contact.svg"
                 anchors.fill: parent
-            }
-            ColorOverlay {
-                id: colorAddButton2
 
-                anchors.fill: imageAddButton
-                source: imageAddButton
-                color: addButtonMouseArea2.containsMouse ? "green" : "white"
-            }
+                ColorOverlay {
+                    id: colorDeleteButton
 
+                    anchors.fill: parent
+                    source: imageDeleteButton
+                    color: deleteButtonMouseArea.containsMouse ? deleteButton.hoveredColor : "white"
+                }
+            }
             MouseArea {
-                id: addButtonMouseArea2
+                id: deleteButtonMouseArea
 
                 anchors.fill: parent
                 hoverEnabled: true
+                cursorShape: containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
             }
         }
     }
