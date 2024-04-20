@@ -11,7 +11,7 @@ ListView {
     Layout.fillHeight: true
 
     spacing: listSpacing
-    model: /*contactModel*/ 5
+    model: /*contactModel*/ 15
     delegate: ContactDelegate {
         email: contact.email
         phoneNumber: contact.telephoneNumber
