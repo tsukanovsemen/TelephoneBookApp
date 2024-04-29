@@ -11,7 +11,12 @@ ListView {
     Layout.fillHeight: true
 
     spacing: listSpacing
-    model: /*contactModel*/ 15
+    model: {
+        console.log("cm", contactModel)
+        return  contactModel
+
+    }
+    onModelChanged: console.log("model changed", contactModel)
     delegate: ContactDelegate {
         email: contact.email
         phoneNumber: contact.telephoneNumber

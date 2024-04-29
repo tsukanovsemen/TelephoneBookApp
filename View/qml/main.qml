@@ -35,10 +35,10 @@ ApplicationWindow {
             height: 45
         }
         ContactsView {
-            contactModel: contactModel
+            contactModel: mainWindow.contactModel
         }
         BottomMenuContorl {
-
+            onAddButtonClicked: contactModel.addContact()
         }
     }
 }

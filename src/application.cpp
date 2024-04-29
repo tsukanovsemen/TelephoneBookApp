@@ -2,6 +2,14 @@
 
 #include "contact_model.h"
 
+namespace {
+    static void registerTypes()
+    {
+        qRegisterMetaType<TelephoneBookModel::ContactModel *>("ContactModel *");
+    }
+}
+Q_CONSTRUCTOR_FUNCTION(registerTypes)
+
 Application::Application() : _engine(std::make_unique<QQmlApplicationEngine>())
 {}
 

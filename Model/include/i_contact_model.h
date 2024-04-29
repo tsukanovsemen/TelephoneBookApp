@@ -18,23 +18,23 @@ namespace TelephoneBookModel {
         /*!
          * \brief addContact - add new contact
          */
-        virtual void addContact() noexcept = 0;
+        Q_INVOKABLE virtual void addContact() noexcept = 0;
 
         /*!
          * \brief addContact - add outer contact
          * \param contact - new contact
          */
-        virtual void addContact(IContact *contact) noexcept = 0;
+        Q_INVOKABLE virtual void addContact(IContact *contact) noexcept = 0;
 
         /*!
          * \brief removeContact - remove last contact
          */
-        virtual void removeContact() noexcept = 0;
+        Q_INVOKABLE virtual void removeContact() noexcept = 0;
 
         /*!
          * \brief removeContactByIndex - remove contact by index
          */
-        virtual void removeContactByIndex(int index) noexcept = 0;
+        Q_INVOKABLE virtual void removeContactByIndex(int index) noexcept = 0;
 
         /*!
          * \brief contactByIndex - return contact by index
@@ -43,5 +43,5 @@ namespace TelephoneBookModel {
     };
 
 } // end namespace TelephoneBookModel
-
+Q_DECLARE_INTERFACE(TelephoneBookModel::IContactModel, "IContactModel")
 #endif // I_CONTACT_MODEL_H

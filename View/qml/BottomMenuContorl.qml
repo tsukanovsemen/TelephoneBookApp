@@ -17,6 +17,8 @@ Rectangle {
                     samples: 17
                 }
 
+    signal addButtonClicked()
+
     RowLayout {
         id: controlsLayout
         anchors.fill: parent
@@ -58,6 +60,7 @@ Rectangle {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
+                onClicked: addButtonClicked()
             }
         }
         Rectangle {

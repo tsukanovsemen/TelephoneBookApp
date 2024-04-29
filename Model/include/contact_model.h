@@ -15,6 +15,7 @@ namespace TelephoneBookModel {
     class TELEPHONEBOOKMODEL_EXPORT ContactModel : public IContactModel
     {
         Q_OBJECT
+        Q_INTERFACES(TelephoneBookModel::IContactModel)
 
     public:
         enum Roles
@@ -53,23 +54,23 @@ namespace TelephoneBookModel {
         /*!
          * \brief addContact - add new contact
          */
-        void addContact() noexcept override;
+        Q_INVOKABLE void addContact() noexcept override;
 
         /*!
          * \brief addContact - add outer contact
          * \param contact - new contact
          */
-        void addContact(IContact *contact) noexcept override;
+        Q_INVOKABLE void addContact(IContact *contact) noexcept override;
 
         /*!
          * \brief removeContact - remove last contact
          */
-        void removeContact() noexcept override;
+        Q_INVOKABLE void removeContact() noexcept override;
 
         /*!
          * \brief removeContactByIndex - remove contact by index
          */
-        void removeContactByIndex(int index) noexcept override;
+        Q_INVOKABLE void removeContactByIndex(int index) noexcept override;
 
         /*!
          * \brief contactByIndex - return contact by index
@@ -80,5 +81,7 @@ namespace TelephoneBookModel {
         QVector<QPointer<IContact>> _contacts; ///< list contacts
     };
 } // end namespace TelephoneBookModel
+
+Q_DECLARE_METATYPE(TelephoneBookModel::ContactModel *)
 
 #endif // CONTACT_MODEL_H

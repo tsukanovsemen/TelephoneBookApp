@@ -52,8 +52,8 @@ namespace TelephoneBookModel {
         void setTelephoneNumber(const QString &telephoneNumber) noexcept override;
 
     private:
-        QString _email { " " }; ///< contact's email
-        QString _telephoneNumber { " " }; ///< contact tel number
+        QString _email { "email@mail.com" }; ///< contact's email
+        QString _telephoneNumber { "+79092341122" }; ///< contact tel number
     };
 } // end namespace TelephoneBookModel
 
